@@ -1,35 +1,53 @@
+      
 name = input("Nhập vào tên của bệnh nhân: ")
-age = int(input("Nhập vào tuổi của bệnh nhân: "))
-
-if name == "" :
+if name == "":
     print(f"Tên không được để trống" )
-elif age < 0 or age > 150 :
-    print(f"LỖI: Tên không hợp lệ hoặc Tuổi nằm ngoài phạm vi con người (0-150)!")
+elif name == " ":
+    print(f"Tên không được chứa khoảng trắng" )
 else :
-    if age > 80 :
-        print(f"ƯU TIÊN: Người cao tuổi - Hỗ trợ xe lăn, chuyển phòng khám Lão khoa.")
-    elif age < 6:
-        print(f"ƯU TIÊN: Bệnh nhi - Chuyển thẳng phòng khám Nhi.")
+    age = int(input("Nhập vào tuổi của bệnh nhân: "))
+    if age < 0 or age > 150 :
+        print(f"LỖI: Tên không hợp lệ hoặc Tuổi nằm ngoài phạm vi con người (0-150)!")
     else :
-        print(f"KHÁM THƯỜNG: Vui lòng lấy số thứ tự và chờ tới lượt tại sảnh.")
+        if age > 80 :
+            result = "ƯU TIÊN: Người cao tuổi - Hỗ trợ xe lăn, chuyển phòng khám Lão khoa."
+        elif age < 6:
+            result = "ƯU TIÊN: Bệnh nhi - Chuyển thẳng phòng khám Nhi."
+        else :
+            result = "KHÁM THƯỜNG: Vui lòng lấy số thứ tự và chờ tới lượt tại sảnh."
+        print(result)
 
+        print("--- PHIẾU KHÁM BỆNH ĐIỆN TỬ ---")
+        print(f"Họ và tên: {name}")
+        print(f"Tuổi: {age}")
+        print(f"Phân luồng: {result}")
 
-# Phân tích chương trình
+    # Phân tích và thiết kế giải pháp
+# Input 
+# name: chuỗi ký tự, nhập từ bàn phím.
+# age: số nguyên, nhập từ bàn phím.
 
-# đầu vào
-# name: tên bệnh nhân 
-# age: tuổi bệnh nhân 
+# Output
+# Thông báo lỗi nếu:
+# Tên rỗng.
+# Tuổi < 0 hoặc > 150.
 
-# đầu ra
-# Báo lỗi nếu tên rỗng hoặc tuổi không hợp lệ.
-# Nếu hợp lệ thì phân loại bệnh nhân theo độ tuổi.
+# Nếu không lỗi:
+# Thông báo phân luồng khám:
+# Người cao tuổi (>80)
+# Trẻ em (<6)
+# Khám thường (6–79)
 
-# Giải pháp
-# Dùng if-elif-else để:
-# - Kiểm tra dữ liệu nhập vào
-# - Phân loại bệnh nhân
+# 2. Đề xuất giải pháp
+# Chương trình dùng:
 
-# Luồng xử lý
-# 1. Nhập tên và tuổi
-# 2. Kiểm tra dữ liệu
-# 3. Nếu hợp lệ thì phân luồng khám
+# if–elif–else để kiểm tra lỗi đầu vào.
+# Điều kiện logic (or, <, >) để xác định tuổi hợp lệ.
+# Điều kiện lồng nhau để phân luồng khám sau khi dữ liệu hợp lệ.
+
+# Luồng xử lý:
+# Kiểm tra tên → báo lỗi nếu rỗng.
+# Kiểm tra tuổi → báo lỗi nếu không hợp lệ.
+# Nếu hợp lệ → phân loại theo nhóm tuổi → in phiếu hướng dẫn.
+
+    
